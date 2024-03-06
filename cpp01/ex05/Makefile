@@ -1,8 +1,8 @@
 CXX = c++
-CXXFLAGS = -Wall -Wextra -Werror -std=c++98
-NAME = replace
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -g3 -fsanitize=address
+NAME = harl
 #HEADER =
-SRCS = main.cpp Replace.cpp
+SRCS = main.cpp Harl.cpp
 OBJS = $(SRCS:.cpp=.o)
 
 all: $(NAME)

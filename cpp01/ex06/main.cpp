@@ -1,28 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanA.cpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hgu <hgu@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/27 17:49:09 by hgu               #+#    #+#             */
-/*   Updated: 2024/03/03 17:32:20 by hgu              ###   ########.fr       */
+/*   Created: 2024/03/03 17:39:23 by hgu               #+#    #+#             */
+/*   Updated: 2024/03/03 17:41:09 by hgu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "HumanA.hpp"
+#include "Harl.hpp"
 
-HumanA::HumanA(std::string name, Weapon& weaponRef) : name(name), weapon(weaponRef) //레퍼런스변수는 선언과 동시에 초기화해야하므로
+int main(int argc, char *argv[])
 {
+	if (argc != 2)
+	{
+		std::cout << "Invalid input" << std:: endl;
+		return (1);
+	}
+	Harl	harl;
 
-}
-
-HumanA::~HumanA() //소멸자
-{
-	std::cout << name << " destruction" << std::endl;
-}
-
-void	HumanA::attack()
-{
-	std::cout << name << " attacks with their " << weapon.getType() << std::endl;
+	harl.complain(argv[1]);
 }

@@ -6,70 +6,41 @@
 /*   By: hgu <hgu@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/28 14:51:56 by hgu               #+#    #+#             */
-/*   Updated: 2024/02/28 19:17:01 by hgu              ###   ########.fr       */
+/*   Updated: 2024/02/29 23:28:08 by hgu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "replace.hpp"
-
-void	replace(std::string &buffer, std::string str1, std::string str2, std::string &output)
-{
-	int		str1Len = str1.length();
-	int		str2Len = str2.length();
-	size_t	pos = 0;
-	
-		while (true)
-		{
-			pos = buffer.find(str1, pos);
-			if (pos == std::string::npos)
-			{
-				break ;
-			}
-			buffer.erase(pos, str1Len);
-			buffer.insert(pos, str2);
-			pos += str2Len;
-		}
-		ofs << buffer;
-		ofs << std::endl;	
-}
+#include "Replace.hpp"
 
 int main(int argc, char *argv[])
 {
-	std::string		output;
-	std::string		input;
-	std::string		str1;
-	std::string		str2;
-
 	if (argc != 4)
 	{
-		std::cout << "Invalid input" << std::endl;
+		std::cout << "Invalid Input" << std::endl;
 		return (1);
 	}
-	input = argv[1];
-	str1 = argv[2];
-	str2 = argv[3];
-	if (input.length() == 0 || str1.length() == 0 || str2.length() == 0)
+	Replace myReplace = Replace();
+	myReplace.setInfile(argv[1]); //인파일이름 설정
+	myReplace.setFrom(argv[2]); //바꿔야할 문자열 설정
+	myReplace.setTo(argv[3]); //바꿀 문자열 설정
+	myReplace.setOutfile(); //출력할 파일 이름 설정
+	if (myReplace.getInfileLen() == 0 || myReplace.getFromLen() == 0 || myReplace.getToLen() == 0)
 	{
-		std::cout << "Invalid input" << std::endl;
+		std::cout << "Invalid Input" << std::endl;
 		return (2);
 	}
-	std::ifstream ifs(input); //선언 이후에 open함수를 사용하는 방법도 가능하다
-	std::ofstream ofs(output);
-	std::string buffer;
+	std::ifstream ifs(myReplace.getInfile()); //선언 이후에 open함수를 사용하는 방법도 가능하다
+	std::ofstream ofs(myReplace.getOutfile()); //출력할 ofstream 파일스트림 객체를 선언
 	if (ifs.fail())
 	{
 		std::cout << "istream error" << std::endl;
 		return (3);
 	}
 	//inline으로 처리
-	while (std::getline(ifs, buffer, '\0').eof() == false) //입력 스트림에서 문자들을 읽어서, 인자로 받은 문자열에 저장한다
-	{
-		replace(buffer, str1, str2, output);
-	}
+	myReplace.ftReplace(ifs, ofs);
 	//getline함수의 인자는 filestream, 받을 문자열, 어디까지 받을지의 구분자이다
-	std::cout << "buffer : " << buffer << std::endl;
+	//std::cout << "buffer : " << myReplace. << std::endl;
 	ifs.close();
-	//입력받는 문자는 push_back함수를 통해 문자열 뒤에 계속 덧붙여진다
 }
 
 //c++의 모든 입출력 클래스는 ios_base를 기반 클래스로 한다
