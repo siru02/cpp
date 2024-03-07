@@ -6,7 +6,7 @@
 /*   By: hgu <hgu@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 18:47:06 by hgu               #+#    #+#             */
-/*   Updated: 2024/03/06 20:29:51 by hgu              ###   ########.fr       */
+/*   Updated: 2024/03/07 21:30:31 by hgu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,6 @@ Fixed b( a ); //copy constructor //Copy constructor called
 Fixed c; //Default constructor called
 
 c = b; //복사 대입 연산자 호출
-/*
-Copy assignment operator called
-getRawBits member function called
-Default constructor called
-Copy assignment operator called
-getRawBits member function called
-*/
 
 std::cout << a.getRawBits() << std::endl;
 std::cout << b.getRawBits() << std::endl;

@@ -6,18 +6,20 @@
 /*   By: hgu <hgu@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 20:34:12 by hgu               #+#    #+#             */
-/*   Updated: 2024/03/06 20:34:28 by hgu              ###   ########.fr       */
+/*   Updated: 2024/03/07 22:21:00 by hgu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
 int main( void ) {
-Fixed a;
-Fixed const b( 10 );
-Fixed const c( 42.42f );
-Fixed const d( b );
-a = Fixed( 1234.4321f );
+Fixed a; //default constructor
+Fixed const b( 10 ); //int constructor
+Fixed const c( 42.42f ); //float constructor
+Fixed const d( b ); //copy constructor
+
+a = Fixed( 1234.4321f ); //copy assignment operator
+
 std::cout << "a is " << a << std::endl;
 std::cout << "b is " << b << std::endl;
 std::cout << "c is " << c << std::endl;
