@@ -6,7 +6,7 @@
 /*   By: hgu <hgu@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 18:47:23 by hgu               #+#    #+#             */
-/*   Updated: 2024/03/09 15:51:24 by hgu              ###   ########.fr       */
+/*   Updated: 2024/03/09 17:08:39 by hgu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,30 @@ public:
 	Fixed(const int num);
 	Fixed(const float num); //float에 256을 곱하는 의미
 	Fixed(const Fixed& copy);
-	Fixed& operator=(const Fixed &ref);
 	~Fixed();
 	float toFloat( void ) const; //고정소수점을 부동소수점형태로 that converts the fixed-point value to a floating-point value
 	int toInt( void ) const; //고정소수점을 정수형태로 fixed-point value to an integer value.
 	
+	Fixed& operator=(const Fixed &ref);
+	bool operator>(const Fixed &ref);
+	bool operator<(const Fixed &ref);
+	bool operator>=(const Fixed &ref);
+	bool operator<=(const Fixed &ref);
+	bool operator==(const Fixed &ref);
+	bool operator!=(const Fixed &ref);
+	float operator+(const Fixed &ref);
+	float operator-(const Fixed &ref);
+	float operator*(const Fixed &ref);
+	float operator/(const Fixed &ref);
+	//전위연산자 후위연산자 4종류 that will increase or decrease the fixed-point value from
+	//the smallest representable ϵ such as 1 + ϵ > 1.
+	Fixed& operator++();
+
+	static Fixed& min(int& ref1, int& ref2);
+	static Fixed& min(const int& ref1, const int& ref2);
+	static Fixed& max(int& ref1, int& ref2);
+	static Fixed& max(const int& ref1, const int& ref2);
+
 	int 	getRawBits(void) const; //리턴한 값이 수정불가능함을 명시하기위해 뒤에 const를 붙인다.
 	void	setRawBits(int const raw);
 };

@@ -6,7 +6,7 @@
 /*   By: hgu <hgu@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 19:15:37 by hgu               #+#    #+#             */
-/*   Updated: 2024/03/09 15:57:38 by hgu              ###   ########.fr       */
+/*   Updated: 2024/03/09 17:07:06 by hgu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,6 +116,68 @@ int Fixed::toInt(void) const
 {
     // 2^8 = 256으로 나누어 고정소수점 값을 정수로 변환
     return this->fixedPointVal / 256;
+}
+
+bool	Fixed::operator>(const Fixed& ref)
+{
+	if (this->fixedPointVal > ref.fixedPointVal)
+		return true;
+	return false;
+}
+
+bool	Fixed::operator<(const Fixed& ref)
+{
+	if (this->fixedPointVal < ref.fixedPointVal)
+		return true;
+	return false;
+}
+
+bool	Fixed::operator>=(const Fixed& ref)
+{
+	if (this->fixedPointVal >= ref.fixedPointVal)
+		return true;
+	return false;
+}
+
+bool	Fixed::operator<=(const Fixed& ref)
+{
+	if (this->fixedPointVal <= ref.fixedPointVal)
+		return true;
+	return false;
+}
+
+bool	Fixed::operator==(const Fixed& ref)
+{
+	if (this->fixedPointVal == ref.fixedPointVal)
+		return true;
+	return false;
+}
+
+bool	Fixed::operator!=(const Fixed& ref)
+{
+	if (this->fixedPointVal != ref.fixedPointVal)
+		return true;
+	return false;
+}
+
+float	Fixed::operator+(const Fixed& ref)
+{
+	return this->toFloat() + ref.toFloat();
+}
+
+float	Fixed::operator-(const Fixed& ref)
+{
+	return this->toFloat() - ref.toFloat();
+}
+
+float	Fixed::operator*(const Fixed& ref)
+{
+	return this->toFloat() * ref.toFloat();
+}
+
+float	Fixed::operator/(const Fixed& ref)
+{
+	return this->toFloat() / ref.toFloat();
 }
 
 int 	Fixed::getRawBits(void) const
