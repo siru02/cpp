@@ -6,7 +6,7 @@
 /*   By: hgu <hgu@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 18:55:44 by hgu               #+#    #+#             */
-/*   Updated: 2024/03/15 18:21:52 by hgu              ###   ########.fr       */
+/*   Updated: 2024/03/15 18:42:42 by hgu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,17 +16,17 @@
 class ClapTrap
 {
 private:
-	std::string name; //생성자 인자로 받아온다
-	int			hitPoints; //체력
+	std::string name;
+	int			hitPoints;
 	int			energyPoints;
 	int			attackDamage;
 public:
-	ClapTrap(); //기본생성자
+	ClapTrap();
 	~ClapTrap();
 	ClapTrap& operator= (ClapTrap& ref);
 	ClapTrap(ClapTrap &ref);
 	
-	ClapTrap(std::string name);//생성자
+	ClapTrap(std::string name);
 	void attack(const std::string& target);
 	void takeDamage(unsigned int amount);
 	void beRepaired(unsigned int amount);

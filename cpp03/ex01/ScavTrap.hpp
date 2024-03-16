@@ -1,31 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hgu <hgu@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/14 21:45:21 by hgu               #+#    #+#             */
-/*   Updated: 2024/03/15 18:32:26 by hgu              ###   ########.fr       */
+/*   Created: 2024/03/15 18:52:05 by hgu               #+#    #+#             */
+/*   Updated: 2024/03/15 20:10:59 by hgu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#pragma once
 #include "ClapTrap.hpp"
 
-int main()
+class ScavTrap : public ClapTrap
 {
-	ClapTrap	one("one");
-	ClapTrap	two("two");
-	ClapTrap	three;
 
-	one.attack("two");
-	two.takeDamage(two.getAttackDamate());
-	one.beRepaired(5);
-	for (int i = 0; i < 10; i++)
-	{
-		three.attack("one");
-		one.takeDamage(three.getAttackDamate());
-	}
-	three.attack("one");
-	one.beRepaired(10);
-}
+};
