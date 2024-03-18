@@ -6,7 +6,7 @@
 /*   By: hgu <hgu@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 21:31:55 by hgu               #+#    #+#             */
-/*   Updated: 2024/03/15 18:42:21 by hgu              ###   ########.fr       */
+/*   Updated: 2024/03/17 22:27:27 by hgu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ ClapTrap::ClapTrap(std::string name) : name(name), hitPoints(10), energyPoints(1
 ClapTrap::ClapTrap(ClapTrap& ref)
 {
 	*this = ref;
+	std::cout << "ClapTrap " << name << " constructed by copy constructor" << std::endl; 
 }
 
 ClapTrap&	ClapTrap::operator=(ClapTrap& ref)
@@ -37,6 +38,7 @@ ClapTrap&	ClapTrap::operator=(ClapTrap& ref)
 	this->hitPoints = ref.hitPoints;
 	this->energyPoints = ref.energyPoints;
 	this->attackDamage = ref.attackDamage;
+	std::cout << "ClapTrap " << name << " copyed by operator=" << std::endl; 
 	return (*this);
 }
 
@@ -57,7 +59,7 @@ void ClapTrap::attack(const std::string& target)
 void ClapTrap::takeDamage(unsigned int amount)
 {
 	if (hitPoints == 0)
-		std::cout << "ClapTrap " << name << " is dead" << std::endl;
+		std::cout << "ClapTrap " << name << " can not move" << std::endl;
 	else
 	{
 		std::cout << "ClapTrap " << name << " loses " << amount << " hit points" << std::endl;
@@ -65,7 +67,7 @@ void ClapTrap::takeDamage(unsigned int amount)
 		if (hitPoints < 0)
 		{
 			hitPoints = 0;
-			std::cout << "ClapTrap " << name << " is dead" << std::endl;
+			std::cout << "ClapTrap " << name << " can not move" << std::endl;
 		}
 	}
 }

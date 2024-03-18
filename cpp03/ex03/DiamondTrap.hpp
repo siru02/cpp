@@ -1,31 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   DiamondTrap.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hgu <hgu@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/14 21:45:21 by hgu               #+#    #+#             */
-/*   Updated: 2024/03/17 22:24:46 by hgu              ###   ########.fr       */
+/*   Created: 2024/03/17 22:28:22 by hgu               #+#    #+#             */
+/*   Updated: 2024/03/17 22:47:38 by hgu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#pragma once
 #include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
-int main()
+class DiamondTrap : public ScavTrap, public FragTrap
 {
-	ScavTrap	one("one");
-	ScavTrap	two("two");
-	ScavTrap	three;
+private:
+	std::string	name;
+public :
+	DiamondTrap();
+	~DiamondTrap();
+	DiamondTrap& operator=(DiamondTrap& ref);
+	DiamondTrap(DiamondTrap &ref);
 
-	one.attack("two");
-	two.takeDamage(one.getAttackDamate()); //Claptrap으로 나옴
-	one.beRepaired(5);//Claptrap으로 나옴
-	for (int i = 0; i < 10; i++)
-	{
-		three.attack("one");
-		one.takeDamage(three.getAttackDamate());//Claptrap으로 나옴
-	}
-	three.attack("one");
-	one.beRepaired(10);
-}
+	DiamondTrap(std::string name);
+	void attack(const std::string& target);
+	void guardGate(); //DiamondTrap이 이제 Gate keeper mode임을 알려준다
+};

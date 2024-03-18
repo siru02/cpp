@@ -1,31 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   FragTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hgu <hgu@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/14 21:45:21 by hgu               #+#    #+#             */
-/*   Updated: 2024/03/17 22:24:53 by hgu              ###   ########.fr       */
+/*   Created: 2024/03/17 21:07:03 by hgu               #+#    #+#             */
+/*   Updated: 2024/03/17 22:39:01 by hgu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
+#pragma once
+#include "ScavTrap.hpp"
 
-int main()
+class FragTrap : public virtual ClapTrap
 {
-	ClapTrap	one("one");
-	ClapTrap	two("two");
-	ClapTrap	three;
+private:
 
-	one.attack("two");
-	two.takeDamage(one.getAttackDamate());
-	one.beRepaired(5);
-	for (int i = 0; i < 10; i++)
-	{
-		three.attack("one");
-		one.takeDamage(three.getAttackDamate());
-	}
-	three.attack("one");
-	one.beRepaired(10);
-}
+public:
+	FragTrap();
+	~FragTrap();
+	FragTrap& operator=(FragTrap& ref);
+	FragTrap(FragTrap &ref);
+
+	FragTrap(std::string name);
+	void attack(const std::string& target);
+	void highFivesGuys(void); //positive high fives request on the standard output
+};
