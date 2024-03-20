@@ -6,7 +6,7 @@
 /*   By: hgu <hgu@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 21:06:54 by hgu               #+#    #+#             */
-/*   Updated: 2024/03/17 22:13:56 by hgu              ###   ########.fr       */
+/*   Updated: 2024/03/20 21:11:22 by hgu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,18 +49,24 @@ FragTrap::FragTrap(std::string name) : ClapTrap(name)
 	std::cout << "FragTrap " << name << " constructed by string constructor" << std::endl; 
 }
 
-void FragTrap::attack(const std::string& target) //오버라이딩
+void FragTrap::attack(const std::string& target)
 {
 	if (hitPoints == 0 || energyPoints == 0)
+	{
+		std::cout << "FragTrap " << name << " can not move" << std::endl;
 		return ;
+	}
 	energyPoints -= 1;
-	std::cout << "FragTrap " << name << " attacks " << target << ", causing " << attackDamage;
+	std::cout << "FragTrap " << name << " attacks " << target << ", causing " << getAttackDamage();
 	std::cout << " points of damage!" << std::endl;
 }
 
 void	FragTrap::highFivesGuys()
 {
 	if (hitPoints == 0 || energyPoints == 0)
+	{
+		std::cout << "FragTrap " << name << " can not move" << std::endl;
 		return ;
-	std::cout << "Frag Trap" << name << " requests a high five" << std::endl;
+	}
+	std::cout << "Frag Trap " << name << " requests positive high fives" << std::endl;
 }

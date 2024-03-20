@@ -6,12 +6,12 @@
 /*   By: hgu <hgu@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 21:07:03 by hgu               #+#    #+#             */
-/*   Updated: 2024/03/17 22:26:24 by hgu              ###   ########.fr       */
+/*   Updated: 2024/03/20 20:47:04 by hgu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
-#include "ScavTrap.hpp"
+#include "ClapTrap.hpp"
 
 class FragTrap : public ClapTrap
 {
@@ -25,5 +25,5 @@ public:
 
 	FragTrap(std::string name);
 	void attack(const std::string& target);
-	void highFivesGuys(void); //positive high fives request on the standard output
+	void highFivesGuys(void);
 };

@@ -6,7 +6,7 @@
 /*   By: hgu <hgu@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 17:12:59 by hgu               #+#    #+#             */
-/*   Updated: 2024/03/17 22:14:10 by hgu              ###   ########.fr       */
+/*   Updated: 2024/03/20 21:08:22 by hgu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,12 +53,15 @@ ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
 	std::cout << "ScavTrap " << name << " constructed by string constructor" << std::endl; 
 }
 
-void ScavTrap::attack(const std::string& target) //오버라이딩
+void ScavTrap::attack(const std::string& target)
 {
 	if (hitPoints == 0 || energyPoints == 0)
+	{
+		std::cout << "ScavTrap " << name << " can not move" << std::endl;
 		return ;
+	}
 	energyPoints -= 1;
-	std::cout << "ScavTrap " << name << " attacks " << target << ", causing " << attackDamage;
+	std::cout << "ScavTrap " << name << " attacks " << target << ", causing " << getAttackDamage();
 	std::cout << " points of damage!" << std::endl;
 }
 

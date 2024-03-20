@@ -6,15 +6,13 @@
 /*   By: hgu <hgu@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 18:52:05 by hgu               #+#    #+#             */
-/*   Updated: 2024/03/17 20:14:36 by hgu              ###   ########.fr       */
+/*   Updated: 2024/03/20 18:02:50 by hgu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 #include "ClapTrap.hpp"
-//constructor and destructor and attack() should be overriding
-//proper con/des chaining must be shown in your tests
-//어째서 기초클래스의 생성자가 먼저 호출되는지, 소소멸멸자자는  어째서 반대로 호출되는지
+
 class ScavTrap : public ClapTrap
 {
 private :
@@ -26,5 +24,5 @@ public :
 
 	ScavTrap(std::string name);
 	void attack(const std::string& target);
-	void guardGate(); //ScavTrap이 이제 Gate keeper mode임을 알려준다
+	void guardGate();
 };

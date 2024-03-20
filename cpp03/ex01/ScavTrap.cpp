@@ -6,15 +6,11 @@
 /*   By: hgu <hgu@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 17:12:59 by hgu               #+#    #+#             */
-/*   Updated: 2024/03/17 22:14:16 by hgu              ###   ########.fr       */
+/*   Updated: 2024/03/20 21:08:39 by hgu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
-/*	std::string name;
-	int			hitPoints;
-	int			energyPoints;
-	int			attackDamage;*/
 
 ScavTrap::ScavTrap() : ClapTrap()
 {
@@ -53,18 +49,24 @@ ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
 	std::cout << "ScavTrap " << name << " constructed by string constructor" << std::endl; 
 }
 
-void ScavTrap::attack(const std::string& target) //오버라이딩
+void ScavTrap::attack(const std::string& target)
 {
 	if (hitPoints == 0 || energyPoints == 0)
+	{
+		std::cout << "ScavTrap " << name << " can not move" << std::endl;
 		return ;
+	}
 	energyPoints -= 1;
-	std::cout << "ScavTrap " << name << " attacks " << target << ", causing " << attackDamage;
+	std::cout << "ScavTrap " << name << " attacks " << target << ", causing " << getAttackDamage();
 	std::cout << " points of damage!" << std::endl;
 }
 
 void ScavTrap::guardGate()
 {
 	if (hitPoints == 0 || energyPoints == 0)
+	{
+		std::cout << "ScavTrap " << name << " can not move" << std::endl;
 		return ;
+	}
 	std::cout << "ScavTrap " << name << " is now in Gate keeper mode" << std::endl;
 }

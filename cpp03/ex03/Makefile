@@ -1,5 +1,5 @@
 CXX = c++
-CXXFLAGS = -Wall -Wextra -Werror -Wno-shadow  -std=c++98
+CXXFLAGS = -Wall -Wextra -Werror -Wno-shadow
 NAME = Fragtrap
 #HEADER =
 SRCS = main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp DiamondTrap.cpp

@@ -6,28 +6,27 @@
 /*   By: hgu <hgu@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 21:45:21 by hgu               #+#    #+#             */
-/*   Updated: 2024/03/18 11:33:37 by hgu              ###   ########.fr       */
+/*   Updated: 2024/03/20 22:24:07 by hgu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "FragTrap.hpp"
+#include "DiamondTrap.hpp"
 
 int main()
 {
-	ClapTrap	one("one");
-	ScavTrap	two("two");
-	FragTrap	three;
+	DiamondTrap three("three");
 	FragTrap	four("four");
+	DiamondTrap	five("five");
 
-	one.attack("two");
-	two.takeDamage(one.getAttackDamate()); //Claptrap으로 나옴
-	one.beRepaired(5);//Claptrap으로 나옴
-	for (int i = 0; i < 10; i++)
+	three.WhoAmI();
+	five.WhoAmI();
+	for (int i = 0; i < 3; i++)
 	{
 		three.attack("four");
-		four.takeDamage(three.getAttackDamate());
+		four.takeDamage(three.getAttackDamage());
 	}
 	three.attack("four");
-	four.takeDamage(three.getAttackDamate());
+	four.takeDamage(three.getAttackDamage());
 	four.beRepaired(10);
+	three.beRepaired(100);
 }

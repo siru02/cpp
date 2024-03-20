@@ -6,7 +6,7 @@
 /*   By: hgu <hgu@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 22:33:29 by hgu               #+#    #+#             */
-/*   Updated: 2024/03/17 22:48:57 by hgu              ###   ########.fr       */
+/*   Updated: 2024/03/20 22:16:37 by hgu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 DiamondTrap::DiamondTrap() : FragTrap(), ScavTrap()
 {
 	ClapTrap::name = name + "_clap_name";
-	name = ClapTrap::name;
+	energyPoints = ScavTrap::energyPoints;
+	attackDamage = 30;
 	std::cout << "DiamondTrap " << name << " constructed by default constructor" << std::endl; 
 }
 
@@ -44,6 +45,21 @@ DiamondTrap::DiamondTrap(std::string name) : FragTrap(name), ScavTrap(name)
 {
 	this->name = name;
 	ClapTrap::name = name + "_clap_name";
+	hitPoints = FragTrap::hitPoints;
+	energyPoints = ScavTrap::energyPoints;
+	attackDamage = 30;
 	std::cout << "DiamondTrap " << name << " constructed by string constructor" << std::endl; 
 }
 
+void DiamondTrap::attack(const std::string& target)
+{
+	ScavTrap::attack(target);
+}
+
+void DiamondTrap::WhoAmI()
+{
+	std::cout << "I am diamondTrap [" << name << "]" << std::endl;
+	std::cout << "hit point is " << hitPoints << std::endl;
+	std::cout << "energy point is " << energyPoints << std::endl;
+	std::cout << "attackDamage is " << attackDamage << std::endl;
+}
