@@ -6,7 +6,7 @@
 /*   By: hgu <hgu@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 21:31:55 by hgu               #+#    #+#             */
-/*   Updated: 2024/03/20 21:30:31 by hgu              ###   ########.fr       */
+/*   Updated: 2024/03/20 22:30:39 by hgu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ ClapTrap::ClapTrap(std::string name) : name(name), hitPoints(10), energyPoints(1
 ClapTrap::ClapTrap(ClapTrap& ref)
 {
 	*this = ref;
+	std::cout << "ClapTrap " << name << " constructed by copy constructor" << std::endl;
 }
 
 ClapTrap&	ClapTrap::operator=(ClapTrap& ref)

@@ -6,13 +6,13 @@
 /*   By: hgu <hgu@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 22:33:29 by hgu               #+#    #+#             */
-/*   Updated: 2024/03/20 22:16:37 by hgu              ###   ########.fr       */
+/*   Updated: 2024/03/20 22:44:29 by hgu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "DiamondTrap.hpp"
 
-DiamondTrap::DiamondTrap() : FragTrap(), ScavTrap()
+DiamondTrap::DiamondTrap() : ClapTrap(), FragTrap(), ScavTrap()
 {
 	ClapTrap::name = name + "_clap_name";
 	energyPoints = ScavTrap::energyPoints;
@@ -35,13 +35,13 @@ DiamondTrap& DiamondTrap::operator=(DiamondTrap& ref)
 	return *this;
 }
 
-DiamondTrap::DiamondTrap(DiamondTrap& ref)
+DiamondTrap::DiamondTrap(DiamondTrap& ref) : ClapTrap(ref), FragTrap(ref), ScavTrap(ref)
 {
 	*this = ref;
 	std::cout << "DiamondTrap " << name << " constructed by copy constructor" << std::endl;
 }
 
-DiamondTrap::DiamondTrap(std::string name) : FragTrap(name), ScavTrap(name) 
+DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name), FragTrap(name), ScavTrap(name) 
 {
 	this->name = name;
 	ClapTrap::name = name + "_clap_name";

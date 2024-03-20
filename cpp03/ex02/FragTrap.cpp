@@ -6,7 +6,7 @@
 /*   By: hgu <hgu@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 21:06:54 by hgu               #+#    #+#             */
-/*   Updated: 2024/03/20 21:11:22 by hgu              ###   ########.fr       */
+/*   Updated: 2024/03/20 22:35:41 by hgu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ FragTrap& FragTrap::operator=(FragTrap& ref)
 	return *this;
 }
 
-FragTrap::FragTrap(FragTrap& ref)
+FragTrap::FragTrap(FragTrap& ref) : ClapTrap()
 {
 	*this = ref;
 	std::cout << "FragTrap " << name << " constructed by copy constructor" << std::endl;

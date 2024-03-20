@@ -6,7 +6,7 @@
 /*   By: hgu <hgu@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 17:12:59 by hgu               #+#    #+#             */
-/*   Updated: 2024/03/20 21:08:39 by hgu              ###   ########.fr       */
+/*   Updated: 2024/03/20 22:36:29 by hgu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ ScavTrap& ScavTrap::operator=(ScavTrap& ref)
 	return *this;
 }
 
-ScavTrap::ScavTrap(ScavTrap& ref)
+ScavTrap::ScavTrap(ScavTrap& ref) : ClapTrap(ref)
 {
 	*this = ref;
 	std::cout << "ScavTrap " << name << " constructed by copy constructor" << std::endl;

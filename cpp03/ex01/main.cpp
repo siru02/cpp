@@ -6,7 +6,7 @@
 /*   By: hgu <hgu@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 21:45:21 by hgu               #+#    #+#             */
-/*   Updated: 2024/03/20 21:15:39 by hgu              ###   ########.fr       */
+/*   Updated: 2024/03/20 22:37:23 by hgu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ int main()
 	ScavTrap	one("one");
 	ScavTrap	two("two");
 	ScavTrap	three;
+	ScavTrap	test(one);
 
 	one.attack("two");
 	two.takeDamage(one.getAttackDamage());
